@@ -1,0 +1,43 @@
+name: Sync SWOT PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - .github/workflows/sync-swot-pdf.yml
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Render PDF from final HTML
+        shell: bash
+        run: |
+          set -euo pipefail
+          BROWSER="$(command -v google-chrome || command -v chromium || command -v chromium-browser)"
+          python3 -m http.server 8000 >/tmp/bookworm-http.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID || true' EXIT
+          sleep 2
+          "$BROWSER" --headless --no-sandbox --disable-gpu --print-to-pdf=Bookworm-SWOT-Analysis.pdf --print-to-pdf-no-header http://127.0.0.1:8000/index.html
+          test -s Bookworm-SWOT-Analysis.pdf
+
+      - name: Commit synchronized PDF
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Bookworm-SWOT-Analysis.pdf
+          if git diff --cached --quiet; then
+            echo "PDF already synchronized"
+            exit 0
+          fi
+          git commit -m "Sync Bookworm SWOT PDF"
+          git push
