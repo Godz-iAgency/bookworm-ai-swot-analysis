@@ -130,9 +130,173 @@
 .moat-layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:45px;align-items:start}.moat-toc{position:sticky;top:90px;max-height:calc(100vh - 110px);overflow:auto}.moat-toc>div{font-size:11px;letter-spacing:.15em;color:#5d7887;font-weight:800;margin-bottom:12px}.moat-toc a{display:block;color:#506679;text-decoration:none;padding:8px 0;border-bottom:1px solid #dfe7e9;font-size:13px}.moat-toc a:hover{color:#087c71}.moat-content{min-width:0}.moat-section{background:white;border:1px solid #dfe7ea;border-radius:15px;padding:32px 36px;margin-bottom:20px;scroll-margin-top:85px;box-shadow:0 4px 18px #12283d08}.moat-section h2{font-size:clamp(23px,3vw,30px);margin:8px 0 12px}.moat-lead{font-size:16px;color:#4c6171;line-height:1.7}.moat-section ul{margin:18px 0 0;padding-left:21px}.moat-section li{padding:7px 0;line-height:1.6}.moat-num{color:#138276}.moat-end{padding:32px;border-radius:15px;background:#112a3e;color:#edf8fa}.moat-end p{color:#d2e2e8}.moat-button{display:inline-block;padding:12px 18px;border-radius:8px;background:#70dbc7;color:#0d2934;text-decoration:none;font-weight:700;margin:12px 8px 0 0}.moat-button.secondary{background:#294a60;color:white}
 @media(max-width:780px){.hub-grid{grid-template-columns:1fr}.hub-card{min-height:240px}.moat-layout{display:block}.moat-toc{position:static;max-height:220px;overflow:auto;margin-bottom:25px;background:#fff;padding:16px;border-radius:12px}.moat-stat-grid{grid-template-columns:1fr 1fr}.moat-section{padding:24px 20px}.moat-header-in{font-size:10px}.moat-header-in>span{display:none}.moat-hero{padding-top:40px}}
 @media print{#homeView,#swotView,.moat-header,.moat-toc{display:none!important}#moatView{display:block!important}.moat-layout{display:block}.moat-section{break-inside:avoid;box-shadow:none}}
-</style></head>
+</style>
+<style id="bookworm-brand-system">
+/* Shared Bookworm dark visual system. CSS artwork avoids extra downloads. */
+:root{
+  --bw-void:#05070b;--bw-canvas:#090d14;--bw-panel:#111720;--bw-panel-raised:#161d29;
+  --bw-line:#29313c;--bw-copy:#eaf0fb;--bw-muted:#a7b3c6;
+  --bw-cyan:#1acaf4;--bw-blue:#5484ff;--bw-pink:#ff35b6;
+  --ink:var(--bw-copy);--mute:var(--bw-muted);--line:var(--bw-line);
+  --accent:var(--bw-cyan);--bg:var(--bw-void);--soft:var(--bw-panel);
+  --s:#5bdfbb;--w:#ffb26c;--o:#56bbff;--t:#de93ff;
+}
+html{color-scheme:dark}
+body{background:var(--bw-void);color:var(--bw-copy);font-family:Inter,"Segoe UI",system-ui,-apple-system,Arial,sans-serif;line-height:1.7}
+a{transition:color .18s,border-color .18s,background-color .18s,transform .18s}
+a:focus-visible{outline:2px solid var(--bw-cyan);outline-offset:4px;border-radius:5px}
+[hidden]{display:none!important}
+.brand-lockup{display:inline-flex;gap:11px;align-items:center;color:#f8faff;font-size:17px;font-weight:850;letter-spacing:-.045em;line-height:1}
+.brand-ai{color:var(--bw-pink)}
+.brand-mark{display:grid;place-items:center;width:33px;height:33px;border:1px solid #2bdbff78;border-radius:10px;background:linear-gradient(135deg,#0b3f65,#1b1948 64%,#55164e);box-shadow:0 0 28px #18baff24;color:#47d6ff;font-size:22px}
+.brand-lockup-small{margin-bottom:24px;font-size:15px}.brand-lockup-small .brand-mark{width:28px;height:28px;font-size:18px}
+.hub-eyebrow,.hub-index,.moat-num,.kicker{color:#57cfff;letter-spacing:.13em}
+body:has(#homeView:not([hidden])){background:var(--bw-void);color:var(--bw-copy)}
+.hub{position:relative;isolation:isolate;overflow:hidden;min-height:100svh;background:radial-gradient(ellipse 55% 55% at 89% 4%,#142a50a8,transparent 70%),radial-gradient(ellipse 47% 55% at 8% 89%,#41103e5c,transparent 72%),#05070b}
+.hub:before,.hub:after{position:absolute;content:"";pointer-events:none;z-index:-1}
+.hub:before{width:55vw;height:55vw;max-width:690px;max-height:690px;right:-260px;top:-210px;border:1px solid #1f93cc42;border-radius:50%;box-shadow:0 0 90px #1694ef10,inset 0 0 65px #3b37ff0e}
+.hub:after{height:2px;left:7%;right:7%;top:0;background:linear-gradient(90deg,transparent,#17cbef,#a444ff,#ff39bc,transparent);opacity:.75}
+.hub-inner{width:min(1060px,calc(100% - 44px));padding:68px 0 80px}
+.hub .brand-lockup{margin-bottom:52px}
+.hub h1{font-size:clamp(46px,8.5vw,92px);max-width:850px;line-height:1.07;letter-spacing:-.055em;margin:16px 0 22px}
+.hub h1 span,.moat-hero em{background:linear-gradient(95deg,#23d6f7 3%,#8088ff 48%,#fb53b7 96%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hub-intro{color:#b5c0d1;max-width:700px;font-size:clamp(16px,2vw,19px);line-height:1.75}
+.hub-grid{gap:20px;margin-top:38px}
+.hub-card{position:relative;isolation:isolate;overflow:hidden;min-height:286px;gap:16px;padding:31px;border-radius:19px;border:1px solid #334151;background:linear-gradient(150deg,#172034,#0e131b 73%);box-shadow:0 16px 48px #0005}
+.hub-card:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#20c9fc 0%,#626dff 55%,#ef42ab 100%);opacity:.9}
+.hub-card:after{content:"";position:absolute;right:-90px;top:-105px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,#218dfc30,transparent 67%);pointer-events:none}
+.hub-card:nth-child(2):after{background:radial-gradient(circle,#e62eb533,transparent 68%)}
+.hub-card:hover{transform:translateY(-4px);border-color:#4bcff5;box-shadow:0 20px 58px #071c44aa}
+.hub-card strong{font-size:clamp(25px,3vw,33px);letter-spacing:-.025em}
+.hub-card>span:nth-of-type(2){color:#aebbd0}
+.hub-card b{color:#57ddff;font-size:14px}.hub-card:nth-child(2) b{color:#f48fd6}
+.hub-bottom{border-top:1px solid #26303c;padding-top:22px;color:#8d9aaf}
+#swotView{min-height:100vh;background:radial-gradient(ellipse 50% 440px at 100% 120px,#0b24405c,transparent),var(--bw-void);color:var(--bw-copy)}
+#swotView .swot-home{background:#0c121b;border-bottom:1px solid #2b394b;color:#71dff7;padding:13px 18px;font-size:13px}
+#swotView .swot-home:hover{color:white;background:#142034}
+#swotView .nav{background:#080d15ef;border-bottom:1px solid #283340;backdrop-filter:blur(16px)}
+#swotView .nav a{color:#a8b5c8;border-color:#273747}
+#swotView .nav a:hover{background:#172131;color:white}
+#swotView .nav a.on{color:#56dfff;border-color:#35bdfa;background:#122235}
+#swotView .wrap{padding-bottom:86px}
+#swotView .cover{padding-top:48px;padding-bottom:32px;border-bottom:1px solid #304054}
+#swotView .cover h1{font-size:clamp(33px,5vw,56px);line-height:1.08;letter-spacing:-.05em;background:linear-gradient(100deg,#fff 28%,#c6e5ff 67%,#ff93d2);-webkit-background-clip:text;background-clip:text;color:transparent}
+#swotView .cover .sub{color:#b0bdd0;max-width:740px}
+#swotView .meta{color:#a4b1c4}
+#swotView .meta b{color:#eaf3ff}
+#swotView h2{color:#f4f8ff;letter-spacing:-.02em}
+#swotView .snapshot{background:linear-gradient(160deg,#121b2a,#0f151f 65%);border:1px solid #293a4b;border-radius:16px;padding:clamp(20px,3vw,30px);box-shadow:0 12px 36px #0002}
+#swotView section[aria-label="SWOT executive overview"] .snapshot{border-top:3px solid transparent;background:linear-gradient(#111823,#111823) padding-box,linear-gradient(90deg,#22cdf4,#6579ff,#f24bbb) border-box;border:1px solid transparent}
+#swotView .snapshot p{margin:0 0 15px;line-height:1.75;color:#cbd5e4}
+#swotView .snapshot p:last-child{margin-bottom:0}
+#swotView .snapshot b{color:#f4f9ff}
+#swotView .grid{gap:14px}
+#swotView .quad{background:#111823;border:1px solid #293746;border-radius:15px;padding:21px 22px}
+#swotView .quad.s{border-top:3px solid var(--s)}#swotView .quad.w{border-top:3px solid var(--w)}
+#swotView .quad.o{border-top:3px solid var(--o)}#swotView .quad.t{border-top:3px solid var(--t)}
+#swotView .quad.s h3{color:var(--s)}#swotView .quad.w h3{color:var(--w)}
+#swotView .quad.o h3{color:var(--o)}#swotView .quad.t h3{color:var(--t)}
+#swotView .quad li{color:#b8c5d6}
+#swotView .section{margin-top:54px}
+#swotView .section .band{border-bottom-width:1px;padding-bottom:15px;margin-bottom:21px}
+#swotView .S .band h2{color:var(--s)}#swotView .W .band h2{color:var(--w)}
+#swotView .O .band h2{color:var(--o)}#swotView .T .band h2{color:var(--t)}
+#swotView .band span{color:#a5b4c6}
+#swotView .qa{background:#101720;border:1px solid #283544;border-left:3px solid #314b68;border-radius:12px;padding:18px 22px;margin:12px 0}
+#swotView .S .qa{border-left-color:var(--s)}#swotView .W .qa{border-left-color:var(--w)}
+#swotView .O .qa{border-left-color:var(--o)}#swotView .T .qa{border-left-color:var(--t)}
+#swotView .q{color:#f5f8fc;font-size:17px;margin-bottom:9px}
+#swotView .qa p,#swotView .qa li{color:#c1ccdb}
+#swotView .qa b{color:#f1f8ff}
+#swotView .lede,#swotView .note,#swotView .foot{color:#aab9cc}
+#swotView table{border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:12px;border:1px solid #2e3c4b}
+#swotView th,#swotView td{border:0;border-right:1px solid #2a3747;border-bottom:1px solid #2a3747;overflow-wrap:anywhere;color:#cbd7e8;background:#101720}
+#swotView th{color:#f2f7fc;background:#1a2431}
+#swotView th.me,#swotView td.me{background:#102838;color:#d0f6ff}
+#swotView th.me{color:#57e0fc}
+#swotView td:first-child{background:#192331;color:#eef5ff}
+#swotView tr:last-child td{border-bottom:0}
+#swotView .win{border:1px solid #345a77;background:linear-gradient(150deg,#122534,#101922);padding:23px;border-radius:15px}
+#swotView .win h3{color:#65d9fc}
+#swotView .win li{color:#c5d1df}
+#swotView .foot{border-top:1px solid #293747}
+#swotView .moat-end{margin:38px 0 0}
+#moatView{min-height:100vh;color:var(--bw-copy);background:radial-gradient(ellipse 55% 550px at 92% 150px,#28134270,transparent 75%),#060910}
+.moat-header{background:#0b1019ee;border-bottom:1px solid #253447;backdrop-filter:blur(14px)}
+.moat-header a{color:#71dffc}.moat-header a:hover{color:#ff91dd}
+.moat-header-in{color:#cbd5e6}
+.moat-wrap{max-width:1200px}
+.moat-hero{padding:68px 0 43px}
+.moat-hero h1{color:#f7fbff;max-width:900px}
+.moat-hero>p{color:#b6c1d3}
+.moat-meta{color:#9facbf}.moat-meta b{color:#edf4ff}
+.moat-statement{border:1px solid #354564;border-left:4px solid #3ac9f7;background:linear-gradient(115deg,#121e33,#171426);color:#e2f1ff;border-radius:14px;box-shadow:0 13px 35px #0004}
+.moat-stat-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.moat-stat-grid>div{background:linear-gradient(135deg,#131e2d,#10151f);border:1px solid #2a394e;border-radius:14px}
+.moat-stat-grid b{color:#65dcff}.moat-stat-grid span{color:#aabbd0}
+.moat-toc>div{color:#72d9ff}
+.moat-toc a{color:#a5b3c7;border-bottom:1px solid #263646}
+.moat-toc a:hover{color:#7ee7ff}
+.moat-section{background:linear-gradient(145deg,#111a28,#101620);border:1px solid #2c3a4a;border-radius:17px;box-shadow:0 10px 36px #0002}
+#moat-overview{border:1px solid transparent;background:linear-gradient(#121a29,#121a29) padding-box,linear-gradient(95deg,#1bbdf1,#6b6cff,#f044b4) border-box;padding:clamp(23px,3.5vw,38px);margin-bottom:25px}
+.moat-section h2{color:#f5f9ff}.moat-section h3{color:#dbeaff}
+.moat-section p,.moat-section li{color:#becbdd}
+.moat-section b{color:#f1f7ff}
+.moat-section .moat-lead{color:#bbcee1}
+.moat-num{color:#64d8ff}
+.moat-end{background:linear-gradient(130deg,#132438,#141323);border:1px solid #35465b;color:#ecf5ff}
+.moat-end p{color:#bacbdf}
+.moat-button{border:1px solid #28c5ee;background:linear-gradient(105deg,#23c9f1,#7ed8ff);color:#071620;border-radius:11px;padding:12px 18px;min-height:46px;box-shadow:0 5px 18px #0d91c420}
+.moat-button.secondary{background:#19243b;color:#d2ecff;border-color:#526b9f}
+.moat-button:hover{transform:translateY(-2px);filter:brightness(1.11)}
+@media(min-width:1100px){
+ #swotView .nav{background:#0b111b}
+ #swotView .nav-in{padding-top:184px}
+ #swotView .wrap{max-width:1180px}
+}
+@media(max-width:780px){
+ .hub .brand-lockup{margin-bottom:35px}
+ .hub-inner{padding:44px 0 64px}
+ .hub-card{min-height:215px;padding:25px}
+ .moat-stat-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .moat-toc{background:#111a26;border:1px solid #2e3e50}
+ .moat-header-in{padding:14px 18px}
+ .moat-hero{padding-top:38px}
+ #swotView .nav{background:#090f18f0}
+ #swotView .qa{padding:17px}
+}
+@media(max-width:540px){
+ .hub h1{font-size:clamp(44px,12vw,66px)}
+ .hub-grid{gap:14px}
+ .hub-card{padding:23px}
+ #swotView .cover{padding-top:30px}
+ #swotView .snapshot{padding:20px}
+ #swotView .quad{padding:18px}
+ #swotView .nav a{padding:12px 10px}
+ #swotView table,#swotView tbody,#swotView tr,#swotView td{display:block;width:100%}
+ #swotView tr{border:1px solid #293848;margin-bottom:13px;border-radius:12px;overflow:hidden}
+ #swotView td{border-right:0}
+ #swotView td:first-child{background:#1d2b3c}
+ #swotView td[data-label]::before{color:#a7bad0}
+ #swotView td.me::before{color:#57e0fc}
+ .moat-stat-grid{grid-template-columns:1fr}
+ .moat-stat-grid>div{padding:15px 19px}
+ .moat-wrap{padding:0 17px 65px}
+ .moat-section{padding:22px 18px}
+ .moat-end{padding:23px}
+ .moat-button{display:block;text-align:center;margin-right:0}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+@media print{
+ body{background:white;color:black}
+ #swotView,#moatView{background:white!important;color:black!important}
+ #swotView .snapshot,#swotView .quad,#swotView .qa,.moat-section{background:white!important;color:black!important;border:1px solid #aaa!important;box-shadow:none!important}
+ #swotView p,#swotView li,.moat-section p,.moat-section li{color:black!important}
+}
+</style>
+</head>
 <body>
-<main id="homeView" class="hub"><div class="hub-inner"><div class="hub-eyebrow">GODZ-i • BOOKWORM AI • STRATEGIC REVIEW</div><h1>Bookworm AI<br><span>Business Strategy</span></h1><p class="hub-intro">Two connected perspectives on the business, the original SWOT analysis and the competitive moat blueprint. Prepared for Shawn Lucas, Business Consultant at Chase.</p><div class="hub-grid"><a class="hub-card" href="#swot"><span class="hub-index">01 / BUSINESS ASSESSMENT</span><strong>SWOT Analysis</strong><span>Strengths, weaknesses, opportunities, threats, competitors and positioning.</span><b>Open SWOT analysis →</b></a><a class="hub-card" href="#moat"><span class="hub-index">02 / LONG-TERM ADVANTAGE</span><strong>Competitive Moat</strong><span>Starving crowd, trusted knowledge, Reader Memory, Goal-to-Outcome Intelligence and the 18-month strategy.</span><b>Explore the moat →</b></a></div><div class="hub-bottom">Prepared by Christopher Downer · October 2026 · Strategic discussion document</div></div></main><div id="swotView" hidden><a href="#home" class="swot-home">← Back to main page · Bookworm AI Strategic Review</a><nav class="nav"><div class="nav-in">
+<main id="homeView" class="hub"><div class="hub-inner"><div class="brand-lockup"><span class="brand-mark" aria-hidden="true">✦</span><span>BOOKWORM<span class="brand-ai">AI</span></span></div><div class="hub-eyebrow">GODZ-i · BUSINESS STRATEGY · 2026</div><h1>Bookworm AI<br><span>Business Strategy</span></h1><p class="hub-intro">Two connected perspectives on the business, the original SWOT analysis and the competitive moat blueprint. Prepared for Shawn Lucas, Business Consultant at Chase.</p><div class="hub-grid"><a class="hub-card" href="#swot"><span class="hub-index">01 / BUSINESS ASSESSMENT</span><strong>SWOT Analysis</strong><span>Strengths, weaknesses, opportunities, threats, competitors and positioning.</span><b>Open SWOT analysis →</b></a><a class="hub-card" href="#moat"><span class="hub-index">02 / LONG-TERM ADVANTAGE</span><strong>Competitive Moat</strong><span>Target readers, trusted knowledge, personalized recommendations, Reader Memory and long-term advantage.</span><b>Explore the moat →</b></a></div><div class="hub-bottom">Prepared by Christopher Downer · October 2026 · Strategic discussion document</div></div></main><div id="swotView" hidden><a href="#home" class="swot-home">← Back to main page · Bookworm AI Strategic Review</a><nav class="nav"><div class="nav-in">
   <a href="#top" data-t="top">Overview</a>
   <a href="#competitors" data-t="competitors">Competitors</a>
   <a href="#strengths" data-t="strengths">Strengths</a>
@@ -143,6 +307,7 @@
 <div class="wrap" id="top">
 
 <div class="cover">
+  <div class="brand-lockup brand-lockup-small"><span class="brand-mark" aria-hidden="true">✦</span><span>BOOKWORM<span class="brand-ai">AI</span></span></div>
   <div class="kicker">Business Strategy Review</div>
   <h1>SWOT Analysis: Bookworm.AI</h1>
   <div class="sub">Strengths, weaknesses, opportunities and threats, with the competitors and what sets Bookworm apart.</div>
@@ -381,7 +546,7 @@
 <div class="moat-end" aria-label="SWOT page navigation"><h2>Continue exploring Bookworm AI</h2><p>Return to the strategic review or explore how Bookworm plans to build a lasting competitive advantage.</p><a href="#home" class="moat-button">← Return to main page</a><a href="#moat" class="moat-button secondary">View Competitive Moat →</a></div>
 
 </div>
-</div><div id="moatView" hidden><header class="moat-header"><div class="moat-header-in"><a href="#home" class="back-home">← Main page</a><span>BOOKWORM AI / COMPETITIVE MOAT</span><a href="#swot" class="switch-link">View SWOT ↗</a></div></header><main class="moat-wrap"><div class="moat-hero"><div class="hub-eyebrow">FOUNDER'S STRATEGIC BLUEPRINT • VERSION 4</div><h1>Building a <em>lasting advantage.</em></h1><p>From seven-day book courses to a personalized knowledge intelligence platform.</p><div class="moat-meta"><span>Prepared for <b>Shawn Lucas</b> · Business Consultant, Chase</span><span>Prepared by <b>Christopher Downer</b> · GODZ-i</span></div><div class="moat-statement">“Bookworm's competitive moat is not the number of books in its library. It is the increasing value created when trusted knowledge, personal learning history and individual goals work together.”</div></div><section class="moat-section" id="moat-overview" aria-label="Competitive moat strategy introduction">
+</div><div id="moatView" hidden><header class="moat-header"><div class="moat-header-in"><a href="#home" class="back-home">← Main page</a><span>BOOKWORM AI / COMPETITIVE MOAT</span><a href="#swot" class="switch-link">View SWOT ↗</a></div></header><main class="moat-wrap"><div class="moat-hero"><div class="brand-lockup brand-lockup-small"><span class="brand-mark" aria-hidden="true">✦</span><span>BOOKWORM<span class="brand-ai">AI</span></span></div><div class="hub-eyebrow">COMPETITIVE MOAT · STRATEGIC REVIEW</div><h1>Building a <em>lasting advantage.</em></h1><p>From seven-day book courses to a personalized knowledge intelligence platform.</p><div class="moat-meta"><span>Prepared for <b>Shawn Lucas</b> · Business Consultant, Chase</span><span>Prepared by <b>Christopher Downer</b> · GODZ-i</span></div><div class="moat-statement">“Bookworm's competitive moat is not the number of books in its library. It is the increasing value created when trusted knowledge, personal learning history and individual goals work together.”</div></div><section class="moat-section" id="moat-overview" aria-label="Competitive moat strategy introduction">
 <div class="moat-num">COMPETITIVE MOAT / EXECUTIVE OVERVIEW</div>
 <h2>The Strategy at a Glance</h2>
 <h3 style="font-size:18px;margin-top:24px">Our Current Advantage</h3>
